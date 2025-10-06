@@ -704,3 +704,158 @@ function Ventas({
     </section>
   );
 }
+
+
+/* Layout base */
+.app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100dvh;
+  background: #0b0f17;
+  color: #e7eaf0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans",
+    "Helvetica Neue", sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  border-right: 1px solid #1b2433;
+  padding: 20px 16px;
+  background: #0f1522;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  background: linear-gradient(90deg, #7dd3fc, #a78bfa, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 18px;
+}
+.nav { display: grid; gap: 8px; }
+.navItem {
+  text-align: left;
+  padding: 10px 12px;
+  background: #0b0f17;
+  border: 1px solid #1b2433;
+  color: #b9c2d0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.2s;
+}
+.navItem:hover { transform: translateY(-1px); background: #121a28; }
+.active { border-color: #7dd3fc; color: #e7eaf0; box-shadow: 0 0 0 3px rgba(125,211,252,0.15) inset; }
+.sidebarFooter { margin-top: auto; display: grid; gap: 10px; }
+
+/* Main */
+.content { padding: 18px 22px; }
+.topbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.search {
+  background: #0b0f17;
+  border: 1px solid #1b2433;
+  color: #e7eaf0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  outline: none;
+  min-width: 240px;
+}
+.search::placeholder { color: #8a97ab; }
+
+/* Cards Dashboard */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.card {
+  background: #0f1522;
+  border: 1px solid #1b2433;
+  border-radius: 16px;
+  padding: 14px 16px;
+}
+.cardTitle { color: #97a6ba; font-size: 12px; }
+.cardValue { font-size: 24px; font-weight: 700; margin-top: 6px; }
+.cardSub { color: #7e8aa0; font-size: 12px; margin-top: 4px; }
+
+/* Panel genérico */
+.panel {
+  background: #0f1522;
+  border: 1px solid #1b2433;
+  border-radius: 16px;
+  padding: 16px;
+}
+.notice {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  margin-bottom: 10px;
+}
+.success { background: rgba(34,197,94,0.08); border-color: rgba(34,197,94,0.25); }
+.warn    { background: rgba(234,179,8,0.08); border-color: rgba(234,179,8,0.25); }
+.muted { color: #8a97ab; }
+.center { text-align: center; }
+
+/* Formularios (ahora bajo una clase local) */
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+  gap: 10px;
+  margin: 10px 0 14px;
+}
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Reemplaza 'label' global por una clase local */
+.field { font-size: 12px; color: #97a6ba; display: grid; gap: 6px; }
+
+/* Reemplaza 'input, select' global por selectores puros bajo .field */
+.field input,
+.field select {
+  background: #0b0f17;
+  border: 1px solid #1b2433;
+  color: #e7eaf0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  outline: none;
+}
+
+.rowGap { display: flex; gap: 10px; }
+.rowBetween { display: flex; justify-content: space-between; align-items: center; }
+
+/* Botones */
+.btn, .btnOutline, .btnXS {
+  border-radius: 10px;
+  border: 1px solid #1b2433;
+  background: #101724;
+  color: #e7eaf0;
+  cursor: pointer;
+}
+.btn { padding: 10px 12px; }
+.btnOutline { padding: 10px 12px; background: transparent; }
+.btnXS { padding: 6px 8px; font-size: 12px; }
+.danger { border-color: #ef4444; color: #fecaca; }
+
+/* Tabla */
+.tableWrap { overflow: auto; border-radius: 12px; border: 1px solid #1b2433; }
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { padding: 10px 12px; border-bottom: 1px solid #1b2433; text-align: left; }
+.actions { display: flex; gap: 6px; align-items: center; }
+.total { font-weight: 700; }
+
+/* Scrollbar sutil (ambos son clases locales, OK) */
+.tableWrap::-webkit-scrollbar, .sidebar::-webkit-scrollbar { height: 8px; width: 8px; }
+.tableWrap::-webkit-scrollbar-thumb, .sidebar::-webkit-scrollbar-thumb { background: #1b2433; border-radius: 10px; }
